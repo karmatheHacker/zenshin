@@ -1,0 +1,21 @@
+{
+    "name": "kamanime-load-tests",
+    "version": "1.0.0",
+    "description": "Load testing suite for Kamanime backend",
+    "scripts": {
+        "test:health": "k6 run basic-health-test.js",
+        "test:metadata": "k6 run torrent-metadata-test.js",
+        "test:streaming": "k6 run streaming-load-test.js",
+        "test:all": "npm run test:health && npm run test:metadata && npm run test:streaming",
+        "monitor": "node health-monitor.js",
+        "test:with-monitor": "start cmd /k \"npm run monitor\" && timeout /t 3 && npm run test:health"
+    },
+    "keywords": [
+        "load-testing",
+        "k6",
+        "performance",
+        "webtorrent"
+    ],
+    "author": "Kamanime Team",
+    "license": "MIT"
+}
